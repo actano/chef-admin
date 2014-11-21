@@ -1,0 +1,4 @@
+#!/bin/bash
+eval $(chef shell-init bash)
+<%= @bash_login.join "\n" %>
+[ -r ~/.profile ] && . ~/.profile
