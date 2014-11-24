@@ -1,6 +1,6 @@
 dir = '/tmp/profitbricks-gem'
-user = 'vagrant'
-group = 'vagrant'
+user = node['chef-admin']['user']
+group = node['chef-admin']['group']
 tgz = File.join Chef::Config[:file_cache_path], 'profitbricks-rb.tgz'
 init = <<INIT
 #!/bin/bash
