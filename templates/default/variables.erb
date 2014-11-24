@@ -1,0 +1,4 @@
+#!/bin/bash
+<% @vars.each do |k,v| %>
+export <%= k %>='<%= v %>'
+<% end %>

@@ -1,4 +1,6 @@
 include_recipe 'actano-chef-admin::ssh'
 include_recipe 'rsync'
 include_recipe 'chef-dk'
+include_recipe 'actano-chef-admin::cache_chefdk'
 include_recipe 'actano-chef-admin::bash_login'
+include_recipe 'actano-chef-admin::profitbricks'
