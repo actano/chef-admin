@@ -2,7 +2,7 @@ default['chef-admin'].tap do |admin|
   admin['user'] = 'vagrant'
   # admin[:id_rsa] = ''
   admin['bash_login'] = []
-  admin['gems'] = []
+  admin['gems'] = ['knife-solo']
   admin['knife_rb_settings'] = []
 end
 
