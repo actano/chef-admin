@@ -2,7 +2,11 @@ default['chef-admin'].tap do |admin|
   admin['user'] = 'vagrant'
   # admin[:id_rsa] = ''
   admin['bash_login'] = []
-  admin['gems'] = ['knife-solo', 'librarian-chef']
+  admin['gems'] = [
+    {:name => 'knife-solo'},
+    {:name => 'librarian-chef'},
+    {:name => 'ohai', :version => '7.4.0'} # Temporary workaround for https://github.com/opscode/chef/issues/2517
+  ]
   admin['knife_rb_settings'] = []
 end
 
