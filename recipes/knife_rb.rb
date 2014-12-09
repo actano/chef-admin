@@ -14,7 +14,7 @@ template File.join(chef_dir, 'knife-solo.rb') do
   variables lazy {
               settings = node['chef-admin']['knife-settings']
               settings = settings.nil? ? {} : Hash.new(settings)
-              settings['solo'] = true
+              settings[:solo] = true
               { :vars => settings, :user => user, :head => {}}
             }
   user user
