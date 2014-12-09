@@ -3,7 +3,7 @@ default['chef-admin'].tap do |admin|
   # admin[:id_rsa] = ''
   admin['bash_login'] = []
   admin['gems'] = []
-  admin['knife_rb_settings'] = []
+  admin['knife-settings'] = []
 end
 
 default['chef_dk']['version'] = '0.3.5'
