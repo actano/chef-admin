@@ -14,6 +14,7 @@ class Chef::Resource::Template
     settings = node['chef-admin']['knife-settings']
     settings = settings.nil? ? {} : Hash.new(settings)
     settings[:bootstrap_version] = node['chef-admin']['bootstrap_version'].to_s
+    settings
   end
 end
 
