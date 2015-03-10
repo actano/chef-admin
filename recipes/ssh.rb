@@ -23,7 +23,7 @@ file pkey_file do
 end
 
 file File.join ssh_dir, 'id_rsa.pub' do
-  content lazy { %x[ openssl rsa -in #{pkey_file} -pubout 2> /dev/null ] }
+  content lazy { %x[ ssh-keygen -y -f #{pkey_file} 2> /dev/null ] }
   user user
   group group
   mode 0644
