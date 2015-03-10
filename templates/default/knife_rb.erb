@@ -2,7 +2,6 @@
 <%= k %> <%= v.inspect %>
 <% end %>
 knife[:use_sudo] = true
-knife[:bootstrap_version] = '11.16.4'
 knife[:vsphere_insecure] = true
 knife[:ssh_user] = <%= @user.inspect %>
 <% @vars.each do |k,v| %>

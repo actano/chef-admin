@@ -4,6 +4,7 @@ default['chef-admin'].tap do |admin|
   admin['bash_login'] = []
   admin['gems'] = []
   admin['knife-settings'] = []
+  admin['bootstrap_version'] = '11.16.4'
 end
 
 default['chef_dk']['version'] = '0.3.5'

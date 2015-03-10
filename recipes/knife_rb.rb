@@ -9,11 +9,16 @@ directory chef_dir do
   mode 0700
 end
 
+def knife_settings
+  settings = node['chef-admin']['knife-settings']
+  settings = settings.nil? ? {} : Hash.new(settings)
+  settings[:bootstrap_version] = node['chef-admin']['bootstrap_version'].to_s
+end
+
 template File.join(chef_dir, 'knife-solo.rb') do
   source 'knife_rb.erb'
   variables lazy {
-              settings = node['chef-admin']['knife-settings']
-              settings = settings.nil? ? {} : Hash.new(settings)
+              settings = knife_settings
               settings[:solo] = true
               { :vars => settings, :user => user, :head => {}}
             }
@@ -25,11 +30,12 @@ end
 template File.join(chef_dir, 'knife.rb') do
   source 'knife_rb.erb'
   variables lazy {
-              settings = node['chef-admin']['knife-settings'] || {}
+              settings = knife_settings
               head = {
                   :client_key => File.join(chef_dir, 'admin.pem'),
                   :validation_key => File.join(chef_dir, 'chef-validator.pem'),
-                  :chef_server_url => node['chef-admin']['chef-server-url'].to_s
+                  :chef_server_url => node['chef-admin']['chef-server-url'].to_s,
+                  :chef_version => node['chef-admin']['chef-version'].to_s
               }
               { :head => head, :vars => settings, :user => user }
             }
