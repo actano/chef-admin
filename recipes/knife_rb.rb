@@ -18,7 +18,7 @@ class Chef::Resource::Template
   end
 end
 
-template File.join(chef_dir, 'knife-solo.rb') do
+template File.join(chef_dir, 'knife.rb') do
   source 'knife_rb.erb'
   variables lazy {
               settings = knife_settings
@@ -30,7 +30,7 @@ template File.join(chef_dir, 'knife-solo.rb') do
   mode 0600
 end
 
-template File.join(chef_dir, 'knife.rb') do
+template File.join(chef_dir, 'knife-server.rb') do
   source 'knife_rb.erb'
   variables lazy {
               settings = knife_settings
